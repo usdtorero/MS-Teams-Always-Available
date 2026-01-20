@@ -82,7 +82,7 @@ const requestForceAvailability = function() {
         chrome.storage.sync.set({requestCount: 0}, () => {});
         requestCount = 0;
       }
-      if (requestCount === undefined) {
+      if (lastUpdatedDate === undefined) {
         chrome.storage.sync.set({lastUpdatedDate: ''}, () => {});
         lastUpdatedDate = '';
       }
@@ -134,8 +134,9 @@ const requestForceAvailability = function() {
             return;
           }
           const token = JSON.parse(tokenJSON).token;
-          const availableUrl = mcasEnabled
-            ? 'https://presence.teams.microsoft.com.mcas.ms/v1/me/forceavailability/?' + mcas
+          const hasMcasQuery = mcasEnabled && mcas;
+          const availableUrl = hasMcasQuery
+            ? `https://presence.teams.microsoft.com.mcas.ms/v1/me/forceavailability/?${mcas}`
             : 'https://presence.teams.microsoft.com/v1/me/forceavailability/';
 
           const response = await fetch(availableUrl, {

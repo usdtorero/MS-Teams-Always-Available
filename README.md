@@ -1,20 +1,26 @@
-# RIP 
+# Microsoft Teams: Always Available
 
-With MS Teams 2.0, the extension is unable to work. The extension has been removed the Chrome Web Store. 
+This Chrome extension keeps your Teams status as `Available` (or Away/Busy) by calling the same
+presence endpoint your browser session already uses. It runs locally in your browser and does not
+require any subscription or external service.
 
-## Microsoft Teams: Always Available
+**Note**: I do not personally support the use of this functionality in a workplace.
 
-This Chrome extension will keep your status as 'Available 🟢' 24/7 by requesting directly to Microsoft's servers
+## Compatibility
 
-**Note**: I do not personally support the use of this functionality for use at a workplace
+- Works with the classic Teams web experience at `https://teams.microsoft.com`.
+- Teams 2.0 is not supported at this time.
 
-## Installation
+## Installation (load unpacked)
 
-Install from the
-[Chrome Web Store](https://chrome.google.com/webstore/detail/microsoft-teams-always-av/klbhkcdmilipmdaejfmhmphbdfiofoen?hl=en)
+1. Clone or download this repository.
+2. Open Chrome and navigate to `chrome://extensions`.
+3. Enable **Developer mode**.
+4. Click **Load unpacked** and select this repository folder.
+5. Open `https://teams.microsoft.com` and sign in.
+6. Use the extension popup to enable the status you want to keep.
 
-![Alt text](example_store_1280x800.png?raw=true 'Title')
+## Usage notes
 
-## Documentation/help
-
-For help, head to [always-available-docs](https://always-available-docs.surge.sh/)
+- The extension uses your existing Teams login session, so keep a Teams tab open.
+- You can limit execution to a time window from the popup settings.
